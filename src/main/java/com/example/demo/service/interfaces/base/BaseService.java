@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @Data
 @NoArgsConstructor
-public abstract class BaseService <T, Dto, Id, R extends BaseRepository<T, Id>> implements IService<Dto ,Id> {
+public abstract class BaseService <T, Dto, Id, R extends BaseRepository<T, Id>> implements IService<Dto ,Id>, GenericQuery<T>{
 
     private Class<T> entityClass;
     private Class<Dto> dtoClass;

@@ -2,6 +2,7 @@ package com.example.demo.service;
 
 import com.example.demo.dto.StudentDto;
 import com.example.demo.entity.Student;
+import com.example.demo.entity.Student_;
 import com.example.demo.repository.StudentRepository;
 import com.example.demo.service.interfaces.StudentService;
 import com.example.demo.service.interfaces.base.BaseService;
@@ -18,4 +19,8 @@ public class StudentServiceImp extends BaseService<Student, StudentDto, Integer,
         super(Student.class, StudentDto.class, repository, mapper);
     }
 
+    @Override
+    public List<Student> findByStudent(String name) {
+        return this.getRepository().findAll(getQueryForEqual(name, Student_.NAME));
+    }
 }

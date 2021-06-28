@@ -22,4 +22,9 @@ public class StudentController {
         studentService.save(studentDto);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @PostMapping("/search")
+    public ResponseEntity<Iterable<Student>> searchListStudentToName(@RequestBody StudentDto studentDto){
+        return new ResponseEntity<>(studentService.findByStudent(studentDto.getName()), HttpStatus.OK);
+    }
 }
